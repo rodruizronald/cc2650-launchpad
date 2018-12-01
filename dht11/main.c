@@ -21,6 +21,9 @@
 #include <ti/drivers/PIN.h>
 #include <ti/drivers/Power.h>
 
+//
+//	Defines for the DHT11 sensor.
+//
 #define DHT11	            				PIN_ID(25)
 #define DHT11_OK									0
 #define DHT11_ERROR_TIMEOUT				1
@@ -31,6 +34,9 @@
 #define HIGH											1
 #define LOW												0
 
+//
+//	Default task stack size.
+//
 #define STACK_SIZE								512
 
 //
@@ -154,6 +160,9 @@ uint8_t readSensor(uint8_t* temperature, uint8_t* humidity)
 		}
 	}
 
+	//
+	//	Checksum will overflow automatically.
+	//
 	uint8_t checkSum = 0;
 	for (i = 0; i < (DHT11_NUM_BYTES - 1); i++)  checkSum += bytes[i];
 	if (checkSum != bytes[4]) return DHT11_ERROR_CHECKSUM;
@@ -175,6 +184,9 @@ void DHT11_task(UArg arg0, UArg arg1)
 
 	while(1)
 	{
+		//
+		//	Read sensor and print output.
+		//
 		switch (readSensor(&temperature, &humidity))
 		{
 			case DHT11_OK:

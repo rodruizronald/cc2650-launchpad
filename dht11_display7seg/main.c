@@ -28,7 +28,7 @@
 #define _BV(bit)				(1 << (bit))
 
 //
-//	Seven segment display pin definitions.
+//	Defines for the seven segment display.
 //
 #define SEGMENT_A								PIN_ID(28)
 #define SEGMENT_B								PIN_ID(30)
@@ -42,7 +42,7 @@
 #define DIGIT_TENS							PIN_ID(26)
 
 //
-//	Temperature sensor definitions.
+//	Defines for the DHT11 sensor.
 //
 #define DHT11	            			PIN_ID(25)
 #define DHT11_OK								0
